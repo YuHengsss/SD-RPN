@@ -46,16 +46,16 @@ Note: we provide some issue fixes during installation and training in `issue_fix
 ## Training
 
 To train SD-RPN upon LLaVA, please follow the instructions below:
-1. Download the pkl [annotation]() and **move** it in your `dataset` folder.
+1. Download the pkl [annotation](https://huggingface.co/YuhengSSS/roi_pseudo) and **move** it in your `dataset` folder.
 ```
 # export HF_ENDPOINT=https://hf-mirror.com # for China users
-huggingface-cli download --include llava_v1_5_7b_pseudo_roi_release.pkl --local-dir ./ --repo-type dataset
-huggingface-cli download --include llava_v1_5_13b_pseudo_roi_release.pkl --local-dir ./ --repo-type dataset
+huggingface-cli download YuhengSSS/roi_pseudo --local-dir ./
 ```
 2. Download the `GQA` and `OCR-VQA` in your `dataset` folder. We provide the download script in `scripts/download_datasets.sh`. Change the `DATAPATH` and `CODEPATH`  in the script to your own folder.
 
 
-3. Start training! Note that before training, you need to configure the `miniconda3 path`, `HUGGINGFACE_HUB_CACHE` and `DATASET_PATH` in the scripts under `scripts/finetune_rois.sh` and `scripts/finetune_rois_13b.sh` to your own path.
+3. **Start training!** Note that before training, you need to configure the `miniconda3 path`, `HUGGINGFACE_HUB_CACHE` and `DATASET_PATH` in the scripts under `scripts/finetune_rois.sh` and `scripts/finetune_rois_13b.sh` to your own path. It takes less than 4 hours to train SD-RPN+7B on 4 A6000 GPUs.
+
 ```
 # for 7B
 bash scripts/finetune_rois.sh
@@ -63,7 +63,6 @@ bash scripts/finetune_rois.sh
 # for 13B
 bash scripts/finetune_rois_13b.sh
 ```
-It takes less than 4 hours to train SD-RPN+7B on 4 A6000 GPUs.
 
 4. Merge the checkpoint with the original LLaVA weights to obtain the final model.
 ```
