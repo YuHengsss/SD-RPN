@@ -6,15 +6,25 @@ Paper: ([arXiv:2407.18559](https://arxiv.org/abs/2407.18559))
 </div>
 
 
+
 ## Updates
 * **`Sep. 17th, 2025`**: We release the code, data and ckpt for SD-RPN.
 
+### TODO
+- [x] Release code and weights for DeepSeek-VL
 
 ## Introduction
 While recent methods leverage a Region-of-Interest (RoI) mechanism to focus on salient areas, they typically present a difficult trade-off: training-based approaches depend on large-scale annotated datasets, while training-free methods that utilize the model's internal attention are computationally inefficient, requiring either multi-pass prefill stages or reliance on the slow auto-regressive decoding process for RoI identification.
 We propose an efficient, annotation-free **S**elf-**D**istilled **R**egion **P**roposal **N**etwork (SD-RPN) that resolves this trade-off. Our core innovation is a pipeline that processes and denoises the noisy cross-attention maps from the MLLM's middle layers to generate pseudo-RoI labels. We then use these labels to train a lightweight and tunable Region Proposal Network (RPN) that is built upon the frozen MLLM backbone. Our RPN predicts the RoI in a single forward pass using features available from the MLLM's middle layers, completely decoupling RoI identification from the auto-regressive generation process and avoiding costly multi-pass operations.
 <p align="center">
   <img src="./assets/framework.png" width="800" />
+</p>
+
+
+## Main Results
+
+<p align="center">
+  <img src="./assets/result.jpg" width="800" />
 </p>
 
 
@@ -86,10 +96,14 @@ We utilize lmms-eval to evaluate the model. Please follow the instructions below
 0. Download the pretrained model and move it to your `checkpoints` folder if you want to evaluate our pretrained model.
 ```
 # export HF_ENDPOINT=https://hf-mirror.com # for China users
+#7B
 huggingface-cli download YuhengSSS/llava-v1.5-7b-roi-K15T3-152k-v1bf16Mheads-twiginit-filled --repo-type model --local-dir ./
+
+#13B, need to run migrate_weights to merge weights, it is not the complete model.
+huggingface-cli download YuhengSSS/llava-v1.5-13b-roi-K15T3-152k-v1bf16Mheads-twiginit --local-dir ./  --repo-type model
 ```
 
-1. Install lmms-eval, check the script in `lmms-eval/install.sh`.
+1. Install lmms-eval, check the script in `lmms-eval/README.md`.
 
 
 2. Run the evaluation script in `lmms-eval`. Change the `checkpoint_path` to your own path.
