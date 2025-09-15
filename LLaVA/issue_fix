@@ -1,0 +1,26 @@
+flashinfer # choose 0.1.6 version
+export HF_ENDPOINT=https://hf-mirror.com # for China users
+
+
+
+#cannot import name 'clear_device_cache' from 'accelerate.utils.memory' (/opt/miniconda3/envs/llava/lib/python3.10/site-packages/accelerate/utils/memory.py)
+#pip install peft==0.10.0
+
+
+#[UserWarning('`do_sample` is set to `False`. However, `temperature` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.'), UserWarning('`do_sample` is set to `False`. However, `top_p` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.')]```
+#check https://github.com/haotian-liu/LLaVA/issues/1745
+#downgrade transformer to 4.36.2 and update code in llava_trainer
+
+#Some weights of the model checkpoint at./checkpoints/llava-v1.5-7b were not used when initializing LlavaLlamaForCausalLM:
+#normal warning, check https://github.com/haotian-liu/LLaVA/issues/672
+
+
+#2 pytorch allocator cache flushes since last step. check https://github.com/deepspeedai/DeepSpeedExamples/issues/172
+#and https://github.com/haotian-liu/LLaVA/issues/594, https://github.com/haotian-liu/LLaVA/issues/1295, https://www.zhihu.com/question/654832546/answer/3486032718
+
+
+#loss=0.0 check: https://github.com/haotian-liu/LLaVA/issues/1621, https://github.com/langchain-ai/langchain/issues/7548 and https://github.com/deepspeedai/DeepSpeed/issues/3963
+
+
+#For 50 GPU series, check https://github.com/lllyasviel/Fooocus/issues/3862
+ValueError: Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes. , check https://github.com/huggingface/transformers/issues/28052
