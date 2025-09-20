@@ -2,13 +2,13 @@
 <h1>SD-RPN </h1>
 <h3>Catching the Details: Self-Distilled RoI Predictors for Fine-Grained MLLM Perception</h3>
 
-Paper: ([arXiv:2407.18559](https://arxiv.org/abs/2407.18559))
+[//]: # (Paper: &#40;[arXiv:2407.18559]&#40;https://arxiv.org/abs/2407.18559&#41;&#41;)
 </div>
 
 
 
 ## Updates
-* **`Sep. 17th, 2025`**: We release the code, data and ckpt for SD-RPN.
+* **`Sep. 20th, 2025`**: We release the code, data and ckpt for SD-RPN.
 
 ### TODO
 - [x] Release code and weights for DeepSeek-VL
