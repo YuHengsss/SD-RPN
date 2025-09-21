@@ -137,13 +137,15 @@ def eval_model(args):
             grounding_attn_o2i = (grounding_attn_o2i[24] + grounding_attn_o2i[13] + grounding_attn_o2i[26])/3
             grounding_attn_q2i = attn_weights_map['layer14']['question2images'][0]
             grounding_attn_q2i = (grounding_attn_q2i[24] + grounding_attn_q2i[13] + grounding_attn_q2i[26])/3
-            sink_attn = attn_weights_map['layer2']['output2images'].mean(0)
+            sink_attn = attn_weights_map['layer2']['output2images'].mean(0) #check process_hidden_states_and_find_indices in ./llava/llm_src/visual_processing if you want exactly the same.
+            #as we find sink tokens got very high attention in not vision-centric heads or layers.
             grounding_attn = grounding_attn_o2i
             grounding_attn *= (sink_attn<1e-3).astype(float) #remove sink tokens
         elif "13b" in model_name:
             required_heads = {16: [2, 21, 30], 15: [2], 13: [21, 23, 26]} # layer: [heads]
             required_layers = list(required_heads.keys())
-            sink_heads = {16: [17, 22]} # layer: [heads]
+            sink_heads = {16: [17, 22]} # layer: [heads] #check process_hidden_states_and_find_indices in ./llava/llm_src/visual_processing if you want exactly the same.
+            #as we find sink tokens got very high attention in not vision-centric heads or layers.
             layers = max(required_layers) + 1
             attn_weights_map = get_attn_weights_map(activations, layers=layers, required_layers=required_layers)
             visual_token_num = attn_weights_map[f'layer{required_layers[0]}']['output2images'].shape[-1]
