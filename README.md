@@ -8,7 +8,7 @@
 
 
 ## Updates
-* **`Sep. 20th, 2025`**: We release the code, data and ckpt for SD-RPN.
+* **`Sep. 21th, 2025`**: We release the code, data and ckpt for SD-RPN.
 
 ### TODO
 - [x] Release code and weights for DeepSeek-VL
