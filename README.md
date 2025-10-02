@@ -2,7 +2,7 @@
 <h1>SD-RPN </h1>
 <h3>Catching the Details: Self-Distilled RoI Predictors for Fine-Grained MLLM Perception</h3>
 
-[//]: # (Paper: &#40;[arXiv:2407.18559]&#40;https://arxiv.org/abs/2407.18559&#41;&#41;)
+Paper: ([arXiv:2509.16944](https://arxiv.org/abs/2509.16944))
 </div>
 
 
@@ -128,6 +128,12 @@ Then you will get the pseudo label like `llava_v1_5_7b_pseudo_roi_release.pkl` a
 ## Citation
 If you find SD-RPN useful in your research, please consider citing the following paper:
 ```
+@article{shi2025catching,
+  title={Catching the Details: Self-Distilled RoI Predictors for Fine-Grained MLLM Perception},
+  author={Shi, Yuheng and Pei, Xiaohuan and Dong, Minjing and Xu, Chang},
+  journal={arXiv preprint arXiv:2509.16944},
+  year={2025}
+}
 ```
 
 ## Acknowledgement
