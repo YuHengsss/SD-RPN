@@ -40,7 +40,7 @@ cd LLaVA
 2. Install Package
 ```Shell
 conda create -n llava_roi python=3.10 -y
-conda activate llava
+conda activate llava_roi
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
