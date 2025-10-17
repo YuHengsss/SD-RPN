@@ -8,7 +8,8 @@ Paper: ([arXiv:2509.16944](https://arxiv.org/abs/2509.16944))
 
 
 ## Updates
-* **`Sep. 21th, 2025`**: We release the code, data and ckpt for SD-RPN.
+* **`Oct. 17, 2025`**: We release the code, data and ckpt upon Qwen2.5-VL.
+* **`Sep. 21, 2025`**: We release the code, data and ckpt for SD-RPN.
 
 ### TODO
 - [x] Release code and weights for DeepSeek-VL
@@ -24,13 +25,16 @@ We propose an efficient, annotation-free **S**elf-**D**istilled **R**egion **P**
 ## Main Results
 
 <p align="center">
-  <img src="./assets/result.jpg" width="800" />
+  <img src="./assets/table1.png" width="800" />
+  <img src="./assets/table2.png" width="800" />
+  <img src="./assets/figure5.png" width="800" />
 </p>
 
 
 
 # Getting Started with SD-RPN
 We provide the code and instructions to train and evaluate SD-RPN based on LLaVA. Please follow the instructions below.
+For Qwen2.5-VL, please check the README in `./Qwen2.5-VL/README.md`.
 1. Clone this repository and navigate to LLaVA folder
 ```bash
 git clone https://github.com/YuHengsss/SD-RPN.git
@@ -114,6 +118,7 @@ bash lmms-eval/examples/A6000/reproduce.sh
 ## Make pseudo labels
 1. Generate pseudo labels for OCR-VQA and GQA datasets
 ```
+python make_jsonl.py #change the path to your own path
 python make_pseudo_label.py #change the path to your own path
 python make_pseudo_label2.py #change the path to your own path
 ```
@@ -137,4 +142,4 @@ If you find SD-RPN useful in your research, please consider citing the following
 ```
 
 ## Acknowledgement
-This project is based on [LLaVA](https://github.com/haotian-liu/LLaVA), [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) and [DeepSeek-VL](https://github.com/deepseek-ai/DeepSeek-VL). We sincerely thank the authors for their great work and open-sourcing the code.
+This project is based on [LLaVA](https://github.com/haotian-liu/LLaVA), [Qwen2.5-VL](https://github.com/QwenLM/Qwen3-VL), [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) and [DeepSeek-VL](https://github.com/deepseek-ai/DeepSeek-VL). We sincerely thank the authors for their great work and open-sourcing the code.
