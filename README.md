@@ -8,6 +8,7 @@ Paper: ([arXiv:2509.16944](https://arxiv.org/abs/2509.16944))
 
 
 ## Updates
+* **`Jan. 27, 2026`**: Our paper is accepted by ICLR2026.
 * **`Oct. 17, 2025`**: We release the code, data and ckpt upon Qwen2.5-VL.
 * **`Sep. 21, 2025`**: We release the code, data and ckpt for SD-RPN.
 
